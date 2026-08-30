@@ -1,5 +1,7 @@
 import type { Request, Response } from 'express';
 import type { QuotePort } from '../../../../app/ports/inbound/QuotePort.js';
+import type { RequestQuoteDTO } from './dto/RequestQuoteDTO.js';
+import type { ResponseQuoteDTO } from './dto/ResponseQuoteDTO.js';
 
 export class QuoteController {
 
@@ -13,8 +15,10 @@ export class QuoteController {
     }
 
     async calcQuote(req: Request, res: Response) {
-        const result = await this.quotePort.calcQuote(req.body.amount);
-        return res.json(result);
+
+        const requestDTO: RequestQuoteDTO = req.body
+        const result = await this.quotePort.calcQuote(requestDTO.amount);
+        return res.json(result as ResponseQuoteDTO);
     }
 
 

@@ -1,18 +1,8 @@
-export interface QuoteResponse {
-    marketQuote: number;
-    spread: number;
-    customerQuote: number;
-}
+import type { GetResponseQuoteDTO } from "../../../adapters/inbound/http/controllers/dto/GetResponseQuoteDTO.js";
+import type { ResponseQuoteDTO } from "../../../adapters/inbound/http/controllers/dto/ResponseQuoteDTO.js";
 
-export interface CalcQuoteResponse {
-    marketQuote: number;
-    spread: number;
-    customerQuote: number;
-    payBRT: number;
-}
 
 export interface QuotePort {
-    getQuote(): Promise<QuoteResponse>;
-
-    calcQuote(amount: number): Promise<CalcQuoteResponse>;
+    getQuote(): Promise<GetResponseQuoteDTO>;
+    calcQuote(amount: number): Promise<ResponseQuoteDTO>;
 }

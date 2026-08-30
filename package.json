@@ -13,6 +13,9 @@
   "license": "ISC",
   "author": "Celso Ricardo Bastos [https://www.linkedin.com/in/celso-ricardo-bastos/]",
   "type": "module",
+  "imports": {
+    "#/*": "./dist/*"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

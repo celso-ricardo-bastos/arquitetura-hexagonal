@@ -1,5 +1,7 @@
-import { Quote } from "../domain/eintities/Quote.js";
-import type { CalcQuoteResponse, QuotePort, QuoteResponse } from "./ports/inbound/QuotePort.js";
+import type { GetResponseQuoteDTO } from "#/adapters/inbound/http/controllers/dto/GetResponseQuoteDTO.js";
+import type { ResponseQuoteDTO } from "#/adapters/inbound/http/controllers/dto/ResponseQuoteDTO.js";
+import { Quote } from "#/domain/eintities/Quote.js";
+import type { QuotePort } from "./ports/inbound/QuotePort.js";
 import type { QuoteProvider } from "./ports/outbound/QuoteProvider.js";
 
 
@@ -15,7 +17,7 @@ export class QuoteApplication implements QuotePort {
         private readonly quoteProvider: QuoteProvider
     ) {}
 
-    async getQuote(): Promise<QuoteResponse> {
+    async getQuote(): Promise<GetResponseQuoteDTO> {
 
         // 1. Busca a cotação no mundo externo
         const marketValue =
@@ -38,7 +40,7 @@ export class QuoteApplication implements QuotePort {
         };
     }
 
-    async calcQuote(amount: number): Promise<CalcQuoteResponse> {
+    async calcQuote(amount: number): Promise<ResponseQuoteDTO> {
 
         // 1. Busca a cotação no mundo externo
         const marketValue =
