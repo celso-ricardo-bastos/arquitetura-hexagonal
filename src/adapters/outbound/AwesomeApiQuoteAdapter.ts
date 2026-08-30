@@ -1,4 +1,4 @@
-import type { QuoteProvider } from "../../application/ports/outbound/QuoteProvider.js";
+import type { QuoteProvider } from "../../app/ports/outbound/QuoteProvider.js";
 
 interface AwesomeApiResponse {
     USDBRL: {

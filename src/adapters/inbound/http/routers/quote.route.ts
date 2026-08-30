@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { QuoteController } from '../controllers/quoteController.js';
 import { AwesomeApiQuoteAdapter } from '../../../outbound/AwesomeApiQuoteAdapter.js';
-import { QuoteApplication } from '../../../../application/QuoteApplication.js';
+import { QuoteApplication } from '../../../../app/QuoteApplication.js';
 
 const router = Router();
 
@@ -17,6 +17,10 @@ const quoteController =
 
 router.get('/quote', (req, res) => {
     return quoteController.getQuote(req, res);
+});
+
+router.post('/quote', (req, res) => {
+    return quoteController.calcQuote(req, res);
 });
 
 export default router;

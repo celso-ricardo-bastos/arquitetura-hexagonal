@@ -1,5 +1,5 @@
 import { Quote } from "../domain/eintities/Quote.js";
-import type { QuotePort, QuoteResponse } from "./ports/inbound/QuotePort.js";
+import type { CalcQuoteResponse, QuotePort, QuoteResponse } from "./ports/inbound/QuotePort.js";
 import type { QuoteProvider } from "./ports/outbound/QuoteProvider.js";
 
 
@@ -23,7 +23,7 @@ export class QuoteApplication implements QuotePort {
 
         // 2. Cria o objeto de domínio
         const quote =
-            new Quote(marketValue, 0.10);
+            new Quote(marketValue, 0.1);
 
 
         // 3. Obtém o valor calculado pelo domínio
@@ -35,6 +35,30 @@ export class QuoteApplication implements QuotePort {
             marketQuote: quote.getMarketValue(),
             spread: quote.getSpread(),
             customerQuote: customerValue
+        };
+    }
+
+    async calcQuote(amount: number): Promise<CalcQuoteResponse> {
+
+        // 1. Busca a cotação no mundo externo
+        const marketValue =
+            await this.quoteProvider.getQuote();
+
+        // 2. Cria o objeto de domínio
+        const quote =
+            new Quote(marketValue, 0.1);
+
+
+        // 3. Obtém o valor calculado pelo domínio
+        const customerValue =
+            quote.getCustomerValue();
+
+        // 4. Retorna o resultado
+        return {
+            marketQuote: quote.getMarketValue(),
+            spread: quote.getSpread(),
+            customerQuote: customerValue,
+            payBRT: quote.getCalcValue(amount),
         };
     }
 }

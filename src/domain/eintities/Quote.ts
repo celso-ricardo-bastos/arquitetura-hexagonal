@@ -29,4 +29,19 @@ export class Quote {
     getSpread(): number {
         return this.spread;
     }
+
+    /**
+        500 × 5,40 = R$ 2.700,00
+
+        Spread:
+        2.700 × 10% = R$ 270,00
+
+        Total:
+        2.700 + 270 = R$ 2.970,00
+     */
+    getCalcValue(amount: number): number {
+        const totalCompra = amount * this.getMarketValue();
+        const spread = totalCompra * this.getSpread();
+        return (spread + totalCompra);
+    }
 }
