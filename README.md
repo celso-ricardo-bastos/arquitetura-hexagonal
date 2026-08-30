@@ -1,6 +1,6 @@
 # Arquitetura Hexagonal
-`Regra de ouro: Regras de negócio vivem no Domain Layer. Use Cases orquestram. Adapters
-implementam ports — nunca o contrário. Nenhuma dependência do domínio aponta para fora.`
+`**Regra de ouro**: Regras de negócio vivem no Domain Layer. **Use Cases** orquestram. Adapters
+implementam ports — nunca o contrário. **Nenhuma dependência do domínio aponta para fora**.`
 
 # Quote API
 
