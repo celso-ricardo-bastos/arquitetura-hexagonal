@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    /* Pasta raiz onde ficam os seus arquivos fontes em TypeScript (.ts) */
+    "rootDir": "./src",
+    /* Pasta onde os arquivos JavaScript compilados (.js) serão salvos */
+    "outDir": "./dist",
+    /* Utiliza o sistema de módulos nativo e moderno do Node.js (ES Modules - import/export) */
+    "module": "nodenext",
+    /* Define para qual versão do JavaScript o código será compilado (Node 25 suporta ES2024) */
+    "target": "ES2024",
+    /* Gera arquivos .map junto com os arquivos .js compilados na pasta dist/. Esses arquivos mapeiam o código compilado de volta para o código TypeScript original. */
+    "sourceMap": true,
+    /* Evita o famoso erro de runtime Cannot read properties of undefined. Na arquitetura hexagonal, onde lidamos com retornos de banco de dados ou mapas, isso traz extrema segurança. */
+    "noUncheckedIndexedAccess": true,
+    /* Ativa verificações estritas de tipos (evita bugs com null, undefined e any) */
+    "strict": true,
+    /* Obriga você a usar import type { MeuTipo } from './tipos' de forma explícita para importar apenas interfaces/tipos, impedindo que o compilador faça suposições ao remover os tipos no build. */
+    "verbatimModuleSyntax": true,
+    /* Garante que cada arquivo possa ser transpilado isoladamente por outras ferramentas de build ultrarrápidas (como SWC, Esbuild ou Vite). */
+    "isolatedModules": true,
+    /* Verifica se um import feito apenas por efeito colateral (ex: import './setup-env') aponta para um arquivo que realmente existe no projeto. */
+    "noUncheckedSideEffectImports": true,
+    /* Força o TypeScript a tratar todo arquivo .ts do seu projeto como um módulo ES (com escopo isolado), mesmo que o arquivo não tenha declarações import ou export. */
+    "moduleDetection": "force",
+    /* Pula a checagem de tipos dentro da pasta node_modules para acelerar o build */
+    "skipLibCheck": true,
+    /* Regra de como o TypeScript vai localizar e resolver os imports de arquivos */
+    "moduleResolution": "NodeNext",
+    /* Permite importar bibliotecas CommonJS usando a sintaxe moderna de ES Modules */
+    "esModuleInterop": true,
+    /* Garante a diferenciação entre maiúsculas e minúsculas nos nomes de arquivos importados */
+    "forceConsistentCasingInFileNames": true
+  },
+  /* Especifica que apenas os arquivos dentro da pasta 'src' devem ser compilados */
+  "include": ["src/**/*"]
+}

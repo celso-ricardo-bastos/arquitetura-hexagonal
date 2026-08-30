@@ -1,0 +1,31 @@
+{
+  "name": "arquitetura-hexagonal",
+  "version": "1.0.0",
+  "description": "Arquitetura Hexagonal",
+  "homepage": "https://github.com/celso-ricardo-bastos/arquitetura-hexagonal#readme",
+  "bugs": {
+    "url": "https://github.com/celso-ricardo-bastos/arquitetura-hexagonal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celso-ricardo-bastos/arquitetura-hexagonal.git"
+  },
+  "license": "ISC",
+  "author": "Celso Ricardo Bastos [https://www.linkedin.com/in/celso-ricardo-bastos/]",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "tsx watch src/server.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
